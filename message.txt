@@ -1,0 +1,3 @@
+Dear ${PERSON_NAME}, 
+
+You made our day by subscribing to our Smarty Filterro newsletter. Hopefully, it will make your days better as well!

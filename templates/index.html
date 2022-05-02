@@ -1,0 +1,120 @@
+<style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    p {
+        line-height: 40rem;
+    }
+    body {
+        font-family: arial;
+    }
+    .newsletter {
+        background-color: #d52290;
+        padding: 20% 5%;
+        color: #fff;
+    }
+    .newsletter h1, .newsletter p{
+        text-align: left;
+        line-height: 34px;
+    }
+    .newsletter-box {
+        margin: 2px left;
+        display: table;
+    }
+    .newsletter-box i {
+        background: #f8f5f8;
+        width: 60px;
+        font-size: 16px;
+        text-align: left;
+        line-height: 40px;
+        color: #bd297a;
+        border-right: 1px solid rgb(255, 255, 255);
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        height: 42px;
+    }
+    .newsletter .newsletter-box button {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background: #d52299;
+        color: #fff;
+        padding: 0 15px;
+        font-size: 14px;
+        cursor: pointer;
+        border: 2px solid rgb(252, 252, 252);
+        border-left: 0px;
+        height: 42px;
+        margin-top: 5px;
+    }
+    .emailbox{
+        border: none;
+        outline: none;
+    }
+    .emailbox {
+        width: 0px;
+        height: 42px;
+        transition: 0.6s;
+        font-size: 16px;
+    }
+    .newsletter-box:hover > .emailbox, .emailbox:focus{
+        width: 280px;
+        padding: 0 10px;
+    }
+    </style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Newsletter Subscription</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+</head>
+<body>
+    <form action="/" method='post' class="newsletter">
+        <h1>Stay informed, not overwhelmed</h1>
+        <br><p>Select the source</p>
+        <div class="newsletter-box">
+        <select name= sources method="GET" action="/">
+            {% for source in sources %}
+            <option value= "{{source}}" SELECTED>{{source}}</option>"
+            {% endfor %}
+        </select>
+        </div> 
+        <br><p>Select the topic</p>
+        <div class="newsletter-box">
+        <select name= topics method="GET" action="/">
+            {% for topic in topics %}
+            <option value= "{{topic}}" SELECTED>{{topic}}</option>"
+            {% endfor %}
+        </select>
+        </div>
+        <br><p>Time-bed mode (exclude highly-provoking news that may add uncessasary stress - wars, terrorist attacks, murder incidents, etc)</p>
+        <div class="newsletter-box">
+        <select name= time-bed-mode method="GET" action="/">
+            {% for time_bed_option in time_bed_options %}
+            <option value= "{{time_bed_option}}" SELECTED>{{time_bed_option}}</option>"
+            {% endfor %}
+        </select>
+        </div>
+    </div>
+    <br><p>How frequently do you want to get news in your inbox?</p>
+    <div class="newsletter-box">
+    <select name= news-time method="GET" action="/">
+        {% for news_time in news_times %}
+        <option value= "{{news_time}}" SELECTED>{{news_time}}</option>"
+        {% endfor %}
+    </select>
+    </div> 
+        <br><p>Yay. Finally, leave your contact details to get your tuned newsletter straight to your inbox</p>       
+        <div class="newsletter-box">
+            <i class="fas fa-envelope"></i>
+            <input class="emailbox" type="text" name="name" value="" placeholder="Enter your Name">
+            <input class="emailbox" type="email" name="email" value="" placeholder="Enter your email id">
+            <button type="submit" name="button">Subscribe</button>
+        </div>
+    </form>
+</body>
+</html>

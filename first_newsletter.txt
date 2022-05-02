@@ -1,0 +1,3 @@
+Hooray ${PERSON_NAME}, 
+
+Smarty Filterro is here. We are enormously glad that you chose our service. This is your first newsletter. Enjoy it!
