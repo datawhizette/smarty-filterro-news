@@ -83,15 +83,22 @@
             {% endfor %}
         </select>
         </div> 
-        <br><p>Select the topic</p>
+        <br><p>Select topics</p>
         <div class="newsletter-box">
-        <select name= topics method="GET" action="/">
+        <input type="checkbox" name="get-topics" value="all_topics"/> All topics
+        <br><input type="checkbox" name="get-topics" value="technology"/> Innovation & Technology & Science
+        <br><input type="checkbox" name="get-topics" value="markets"/> Markets
+        <br><input type="checkbox" name="get-topics" value="lifestyle"/> Lifestyle & Entertainment
+        <br><input type="checkbox" name="get-topics" value="environment"/> Environment
+        <br><input type="checkbox" name="get-topics" value="politics"/> Politics
+        <br><input type="checkbox" name="get-topics" value="health"/> Health & Medicine   
+        <!-- <br><select name= topics method="GET" action="/">
             {% for topic in topics %}
             <option value= "{{topic}}" SELECTED>{{topic}}</option>"
             {% endfor %}
-        </select>
+        </select> -->
         </div>
-        <br><p>Time-bed mode (exclude highly-provoking news that may add uncessasary stress - wars, terrorist attacks, murder incidents, etc)</p>
+        <br><p>Time-bed mode (exclude highly-provoking news that may add unnecessary stress - wars, terrorist attacks, murder incidents, etc)</p>
         <div class="newsletter-box">
         <select name= time-bed-mode method="GET" action="/">
             {% for time_bed_option in time_bed_options %}

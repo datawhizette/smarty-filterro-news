@@ -9,17 +9,18 @@ import time
 
 ROOT = path.dirname(path.relpath((__file__)))
 
-def add_user(name, email, source, topic, time_bed, news_time):
+def add_user(name, email, source, topics, time_bed, news_time):
     con = sql.connect(path.join(ROOT, 'user_database.db'))
     cur = con.cursor()
     try:
-        cur.execute('replace into users (email, name, source, topic, time_bed, news_time) values(?, ?, ?, ?, ?, ?)', (email, name, source, topic, time_bed, news_time))
+        cur.execute('replace into users (email, name, source, topics, time_bed, news_time) values(?, ?, ?, ?, ?, ?)', (email, name, source, topics, time_bed, news_time))
     except:
+        cur.execute("""DROP TABLE users""")
         cur.execute(f"""CREATE TABLE users (
                     email TEXT,
                     name TEXT,
                     source TEXT,
-                    topic TEXT,
+                    topics LIST,
                     time_bed TEXT,
                     news_time TEXT)""")
     con.commit()
@@ -90,8 +91,6 @@ def reuters(page):
     return df
 
 def scrape(url,method):
-    
-    print('scraping webpage effortlessly')
     time.sleep(5)
     
     session=requests.Session()
@@ -144,7 +143,7 @@ def wrap_output_in_html(output):
         align="center">
         <tr>
             <td class="esd-block-text" align="center">
-            <h2>Middle East</h2></td>
+            <h2>Smarty Filterro Newsletter</h2></td>
         </tr></table>
         <div><br></div>
         
